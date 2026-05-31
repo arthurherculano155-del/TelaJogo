@@ -1,0 +1,69 @@
+.press-start-2p-regular {
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 800;
+  font-style: normal;
+}
+
+html{
+    font-size: 10px;
+}
+
+body{
+    background: url(Fundo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.botoes{
+    margin-top: -10vh;
+}
+
+.game{
+    color: lightblue;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 10vh;
+    width: 50vw;
+    text-align: center;
+    position: fixed;
+    left: 23vw;
+}
+
+.game h1{
+    font-size: 3.5rem;
+    color: rgb(8, 95, 95);
+    padding: 3rem;
+}
+
+.Start{
+    width: 40rem;
+    min-width: 30vw;
+    margin: auto;
+}
+
+.game button{
+    margin: 1rem auto;
+    height: 2rem;
+    padding: 2vw;
+    border-radius: 0.8rem;
+    align-items: center;
+    text-align: center;
+    background: none;
+    border: 0.3rem solid rgb(68, 68, 252);
+    font-size: 1.8rem;
+    width: 35vw;
+    transition: 0.2s;
+}
+
+p{
+    margin-top: -2vh;
+}
+
+.game button:hover{
+    box-shadow: 0rem 0rem 5rem rgb(1, 124, 124);
+    text-shadow: 0.4rem 0rem 4rem rgb(179, 255, 255);
+    transform: scale(1.05);
+}
