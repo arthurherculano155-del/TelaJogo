@@ -4,15 +4,20 @@
   font-style: normal;
 }
 
+*{
+    margin: 0;
+}
+
 html{
     font-size: 10px;
 }
 
-body{
+.tela{
     background: url(Fundo.png);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
+    width: 100%;
 }
 
 .botoes{
