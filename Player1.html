@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jogo da Tabuada</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    overflow:hidden;
+    background-image:url("Fundo.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+.tela{
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    width:500px;
+    padding:40px;
+    background:rgba(255,255,255,0.15);
+    border:3px solid #5d5dff;
+    border-radius:20px;
+    text-align:center;
+    backdrop-filter:blur(5px);
+}
+
+h1{
+    font-size:55px;
+    color:#0c4c5c;
+    margin-bottom:20px;
+    text-shadow:2px 2px white;
+}
+
+.pergunta{
+    font-size:50px;
+    color:black;
+    margin:25px 0;
+    font-weight:bold;
+}
+
+input{
+    width:220px;
+    height:60px;
+    border:none;
+    border-radius:10px;
+    text-align:center;
+    font-size:35px;
+    outline:none;
+}
+
+button{
+    margin-top:20px;
+    width:220px;
+    height:55px;
+    border:none;
+    border-radius:10px;
+    background:#4f46ff;
+    color:white;
+    font-size:25px;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+.info{
+    display:flex;
+    justify-content:space-between;
+    margin-top:30px;
+    color:white;
+    font-size:25px;
+    font-weight:bold;
+}
+
+.final{
+    display:none;
+    text-align:center;
+}
+
+.final h2{
+    font-size:55px;
+    color:white;
+    margin-bottom:20px;
+}
+
+.final p{
+    color:white;
+    font-size:35px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="tela">
+
+    <div class="container" id="game">
+
+        <h1>TABUADA</h1>
+
+        <div class="pergunta" id="pergunta">
+            1 × 1
+        </div>
+
+        <input type="number" id="resposta">
+
+        <br>
+
+        <button onclick="verificar()">
+            RESPONDER
+        </button>
+
+        <div class="info">
+            <span>❤️ <span id="vidas">3</span></span>
+            <span>⏰ <span id="tempo">5</span></span>
+        </div>
+
+    </div>
+
+    <div class="final" id="final">
+
+        <h2>GAME OVER</h2>
+
+        <p>Pontos: <span id="pontos"></span></p>
+
+        <button onclick="location.reload()">
+            JOGAR NOVAMENTE
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+let n1;
+let n2;
+let resultado;
+
+let vidas = 3;
+let pontos = 0;
+let tempo = 5;
+
+const pergunta = document.getElementById("pergunta");
+const respostaInput = document.getElementById("resposta");
+
+function novaPergunta(){
+
+    n1 = Math.floor(Math.random() * 10) + 1;
+    n2 = Math.floor(Math.random() * 10) + 1;
+
+    resultado = n1 * n2;
+
+    pergunta.innerHTML = `${n1} × ${n2}`;
+
+    respostaInput.value = "";
+
+    tempo = 5;
+    document.getElementById("tempo").innerHTML = tempo;
+}
+
+function verificar(){
+
+    let valor = Number(respostaInput.value);
+
+    if(valor === resultado){
+
+        pontos++;
+
+        novaPergunta();
+
+    }else{
+
+        perderVida();
+    }
+}
+
+function perderVida(){
+
+    vidas--;
+
+    document.getElementById("vidas").innerHTML = vidas;
+
+    if(vidas <= 0){
+
+        gameOver();
+
+    }else{
+
+        novaPergunta();
+    }
+}
+
+function gameOver(){
+
+    document.getElementById("game").style.display = "none";
+
+    let final = document.getElementById("final");
+
+    final.style.display = "block";
+
+    document.getElementById("pontos").innerHTML = pontos;
+}
+
+setInterval(()=>{
+
+    tempo--;
+
+    document.getElementById("tempo").innerHTML = tempo;
+
+    if(tempo <= 0){
+
+        perderVida();
+    }
+
+},1000);
+
+window.addEventListener("keydown",(e)=>{
+
+    if(e.key === "Enter"){
+
+        verificar();
+    }
+
+});
+
+novaPergunta();
+
+</script>
+
+</body>
+</html>
