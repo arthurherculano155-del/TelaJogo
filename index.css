@@ -46,8 +46,8 @@ body{
 
 .game button{
     margin: 1rem auto;
-    height: 3rem;
-    padding: 2vw;
+    height: 10vh;
+    padding: 3vh;
     border-radius: 0.8rem;
     align-items: center;
     text-align: center;
@@ -60,7 +60,7 @@ body{
 }
 
 p{
-    margin-top: -2vh;
+    margin-top: -1vh;
 }
 
 .game button:hover{
