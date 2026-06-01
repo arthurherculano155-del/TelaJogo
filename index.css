@@ -51,14 +51,14 @@ html{
 
 .game button{
     margin: 1rem auto;
-    padding: 2rem 3rem;
+    padding: 2rem 2.5rem;
     border-radius: 0.8rem;
     align-items: center;
     text-align: center;
     background: none;
     border: 0.3rem solid rgb(68, 68, 252);
     font-size: 1.8rem;
-    width: 28rem;
+    width: 20rem;
     margin-top: 4vh;
     transition: 0.2s;
 }
