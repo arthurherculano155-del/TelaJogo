@@ -46,8 +46,8 @@ body{
 
 .game button{
     margin: 1rem auto;
-    height: 2rem;
-    padding: 2vw;
+    height: 5rem;
+    padding: 3rem;
     border-radius: 0.8rem;
     align-items: center;
     text-align: center;
