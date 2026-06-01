@@ -4,15 +4,21 @@
   font-style: normal;
 }
 
+*{
+    margin: 0;
+}
+
 html{
     font-size: 10px;
 }
 
-body{
-    background: url(Fundo.png);
-    background-repeat: no-repeat;
+.tela{
+    background: url("Fundo.png");
     background-size: cover;
+    background-repeat: no-repeat;
     height: 100vh;
+    width: 100%;
+    margin: 0;
 }
 
 .botoes{
@@ -33,34 +39,28 @@ body{
 }
 
 .game h1{
-    font-size: 3.5rem;
+    font-size: 35px;
     color: rgb(8, 95, 95);
-    padding: 3rem;
-}
-
-.Start{
-    width: 40rem;
-    min-width: 30vw;
-    margin: auto;
+    padding: 30px;
 }
 
 .game button{
-    margin: 1rem auto;
-    height: 10vh;
-    padding: 3vh;
-    border-radius: 0.8rem;
+    margin: 10px auto;
+    height: 55px;
+    padding: 30px;
+    border-radius: 8px;
     align-items: center;
     text-align: center;
     background: none;
-    border: 0.3rem solid rgb(68, 68, 252);
-    font-size: 1.8rem;
-    width: 35vw;
+    border: 3px solid rgb(68, 68, 252);
+    font-size: 18px;
+    width: 300px;
     transition: 0.2s;
     cursor: pointer;
 }
 
 p{
-    margin-top: -1vh;
+    margin-top: -1.3rem;
 }
 
 .game button:hover{
