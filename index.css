@@ -12,12 +12,12 @@ html{
     font-size: 10px;
 }
 
-.tela{
+body{
     background: url(Fundo.png);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
-    width: 100%;
+    width: 100vw;
 }
 
 .botoes{
@@ -69,4 +69,10 @@ html{
     box-shadow: 0rem 0rem 5rem rgb(1, 124, 124);
     text-shadow: 0.4rem 0rem 4rem rgb(179, 255, 255);
     transform: scale(1.05);
+}
+
+@media (max-width: 480px){
+    body{
+
+    }
 }
