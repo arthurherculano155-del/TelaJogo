@@ -1,0 +1,201 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: url("Fundo.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    padding: 20px;
+}
+
+.container{
+    width: 90%;
+    max-width: 550px;
+    min-height: 550px;
+
+    background: rgba(255,255,255,0.15);
+
+    backdrop-filter: blur(8px);
+
+    border: 3px solid #5a6bff;
+    border-radius: 25px;
+
+    padding: 25px;
+
+    text-align: center;
+}
+
+.jogador{
+    color: white;
+    font-size: 1.5rem;
+}
+
+.titulo{
+    color: #0b5672;
+
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+
+    text-shadow: 3px 3px white;
+
+    margin-top: 10px;
+}
+
+.conta{
+    margin-top: 30px;
+
+    font-size: clamp(2rem, 8vw, 4rem);
+
+    font-weight: bold;
+}
+
+#resposta{
+    width: 100%;
+    max-width: 250px;
+
+    height: 60px;
+
+    margin-top: 25px;
+
+    border: none;
+    border-radius: 12px;
+
+    text-align: center;
+
+    font-size: 2rem;
+}
+
+button{
+    width: 100%;
+    max-width: 250px;
+
+    height: 55px;
+
+    margin-top: 20px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #5a6bff;
+
+    color: white;
+
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+button:hover{
+    transform: scale(1.05);
+}
+
+.msg{
+    margin-top: 20px;
+
+    color: white;
+
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.info{
+    margin-top: 40px;
+
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    color: white;
+
+    font-size: 1.3rem;
+}
+
+#troca{
+    display: none;
+}
+
+#troca h1{
+    margin-top: 100px;
+
+    color: #0b5672;
+
+    font-size: clamp(2rem, 7vw, 4rem);
+
+    text-shadow: 2px 2px white;
+}
+
+.trocaTexto{
+    margin-top: 20px;
+
+    color: white;
+
+    font-size: 1.3rem;
+}
+
+@media (max-width: 768px){
+
+    .container{
+        min-height: 500px;
+        padding: 20px;
+    }
+
+    .info{
+        font-size: 1.1rem;
+    }
+
+}
+
+@media (max-width: 480px){
+
+    .container{
+        width: 100%;
+        min-height: 450px;
+
+        border-radius: 20px;
+
+        padding: 15px;
+    }
+
+    .jogador{
+        font-size: 1.2rem;
+    }
+
+    #resposta{
+        height: 55px;
+        font-size: 1.5rem;
+    }
+
+    button{
+        height: 50px;
+        font-size: 1rem;
+    }
+
+    .info{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+
+        margin-top: 30px;
+    }
+
+    .trocaTexto{
+        font-size: 1.1rem;
+    }
+
+}

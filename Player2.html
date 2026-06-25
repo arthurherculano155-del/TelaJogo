@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada 2 Players</title>
+
+    <link rel="stylesheet" href="Player2.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div id="jogo">
+
+            <h2 class="jogador" id="jogador">
+                JOGADOR 1
+            </h2>
+
+            <h1 class="titulo">
+                TABUADA
+            </h1>
+
+            <div class="conta" id="conta"></div>
+
+            <input
+                type="number"
+                id="resposta"
+                placeholder="Resposta"
+            >
+
+            <button onclick="verificar()">
+                RESPONDER
+            </button>
+
+            <p class="msg" id="msg"></p>
+
+            <div class="info">
+
+                <div>
+                    ❤️ P1:
+                    <span id="vida1">3</span>
+                </div>
+
+                <div>
+                    ❤️ P2:
+                    <span id="vida2">3</span>
+                </div>
+
+                <div>
+                    ⏰
+                    <span id="tempo">5</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="troca">
+
+            <h1 id="proximo">
+                JOGADOR 2
+            </h1>
+
+            <p class="trocaTexto">
+                Passe o computador para o próximo jogador
+            </p>
+
+            <button onclick="continuar()">
+                CONTINUAR
+            </button>
+
+        </div>
+
+    </div>
+
+<script>
+
+let jogadorAtual = 1;
+
+let vidas1 = 3;
+let vidas2 = 3;
+
+let tempo = 5;
+let intervalo;
+
+let n1;
+let n2;
+
+gerarConta();
+iniciarTempo();
+
+function gerarConta(){
+
+    n1 = Math.floor(Math.random() * 10) + 1;
+    n2 = Math.floor(Math.random() * 10) + 1;
+
+    document.getElementById("conta").innerHTML =
+    `${n1} × ${n2}`;
+
+}
+
+function iniciarTempo(){
+
+    tempo = 5;
+
+    document.getElementById("tempo").innerHTML =
+    tempo;
+
+    clearInterval(intervalo);
+
+    intervalo = setInterval(() => {
+
+        tempo--;
+
+        document.getElementById("tempo").innerHTML =
+        tempo;
+
+        if(tempo <= 0){
+
+            clearInterval(intervalo);
+
+            document.getElementById("msg").innerHTML =
+            "⏰ Tempo esgotado!";
+
+            if(jogadorAtual == 1){
+
+                vidas1--;
+
+                document.getElementById("vida1").innerHTML =
+                vidas1;
+
+            }
+            else{
+
+                vidas2--;
+
+                document.getElementById("vida2").innerHTML =
+                vidas2;
+
+            }
+
+            setTimeout(trocarJogador,1000);
+
+        }
+
+    },1000);
+
+}
+
+function verificar(){
+
+    clearInterval(intervalo);
+
+    let resposta =
+    Number(document.getElementById("resposta").value);
+
+    let correta = n1 * n2;
+
+    if(resposta == correta){
+
+        document.getElementById("msg").innerHTML =
+        "✅ Acertou!";
+
+    }
+    else{
+
+        document.getElementById("msg").innerHTML =
+        "❌ Errou!";
+
+        if(jogadorAtual == 1){
+
+            vidas1--;
+
+            document.getElementById("vida1").innerHTML =
+            vidas1;
+
+        }
+        else{
+
+            vidas2--;
+
+            document.getElementById("vida2").innerHTML =
+            vidas2;
+
+        }
+
+    }
+
+    setTimeout(trocarJogador,1000);
+
+}
+
+function trocarJogador(){
+
+    if(vidas1 <= 0){
+
+        alert("🏆 Jogador 2 venceu!");
+
+        location.reload();
+
+        return;
+    }
+
+    if(vidas2 <= 0){
+
+        alert("🏆 Jogador 1 venceu!");
+
+        location.reload();
+
+        return;
+    }
+
+    document.getElementById("jogo").style.display =
+    "none";
+
+    document.getElementById("troca").style.display =
+    "block";
+
+    let proximo =
+    jogadorAtual == 1 ? 2 : 1;
+
+    document.getElementById("proximo").innerHTML =
+    "JOGADOR " + proximo;
+
+}
+
+function continuar(){
+
+    jogadorAtual =
+    jogadorAtual == 1 ? 2 : 1;
+
+    document.getElementById("jogador").innerHTML =
+    "JOGADOR " + jogadorAtual;
+
+    document.getElementById("resposta").value = "";
+
+    document.getElementById("msg").innerHTML = "";
+
+    gerarConta();
+
+    iniciarTempo();
+
+    document.getElementById("troca").style.display =
+    "none";
+
+    document.getElementById("jogo").style.display =
+    "block";
+
+}
+
+</script>
+
+</body>
+</html>
