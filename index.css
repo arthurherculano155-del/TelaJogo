@@ -12,7 +12,7 @@ html{
     font-size: 10px;
 }
 
-body{
+.tela{
     background: url(Fundo.png);
     background-repeat: no-repeat;
     background-size: cover;
