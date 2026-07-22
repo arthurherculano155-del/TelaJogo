@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jogo da Tabuada</title>
-<link rel="stylesheet" href="Player1.css">
+<link rel="stylesheet" href="Player2.css">
 </head>
 <body>
 
@@ -27,8 +27,8 @@
         </button>
 
         <div class="info">
-            <span>❤️ <span id="vidas">3</span></span>
-            <span>⏰ <span id="tempo">3</span></span>
+            <span><img src="HardcoreHeart-removebg-preview.png" alt=""> <p id="vidas">1</p></span>
+            <span><img src="MinecraftCLock-removebg-preview.png" alt=""><p id="tempo">5</p></span>
         </div>
 
     </div>
@@ -41,14 +41,22 @@
 
         <button onclick="location.reload()">
             JOGAR NOVAMENTE
-        </button>
+        </button> <br>
+
+        <a href="index.html">
+        <button>VOLTAR AO LOBBY</button>
+        </a>
 
     </div>
 
     <div class="ganhou" id="win">
         <p>VOCÊ GANHOU!!</p>
         <p>Pontos: 20</p>
-        <button onclick="location.reload()">Jogar Novamente</button>
+        <button onclick="location.reload()">Jogar Novamente</button> <br>
+
+        <a href="index.html">
+        <button>VOLTAR AO LOBBY</button>
+        </a>
     </div>
 
 </div>
@@ -59,9 +67,9 @@ let n1;
 let n2;
 let resultado;
 
-let vidas = 3;
+let vidas = 1;
 let pontos = 0;
-let tempo = 3;
+let tempo = 5;
 
 const pergunta = document.getElementById("pergunta");
 const respostaInput = document.getElementById("resposta");
@@ -77,7 +85,7 @@ function novaPergunta(){
 
     respostaInput.value = "";
 
-    tempo = 3;
+    tempo = 5;
     document.getElementById("tempo").innerHTML = tempo;
 }
 

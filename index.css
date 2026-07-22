@@ -102,14 +102,15 @@ body{
     transform: translateY(-5px) scale(1.05);
 
     box-shadow:
-        0 0 20px cyan,
-        0 0 50px cyan;
+        0 0 20px rgb(255, 136, 0),
+        0 0 50px rgb(255, 153, 0);
 
-    background: linear-gradient(180deg,#59e8ff,#00a2ff);
+    background: linear-gradient(180deg,#ffb759,#ffa600);
 }
 
 .game button:active{
     transform: scale(.90);
+    background: linear-gradient(180deg,#d47800,#9c6601);
 }
 
 @keyframes aparecer{

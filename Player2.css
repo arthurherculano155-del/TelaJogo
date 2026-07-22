@@ -47,7 +47,7 @@ h1{
 }
 
 input{
-    width:220px;
+    width:80%;
     height:60px;
     border:none;
     border-radius:10px;
@@ -58,7 +58,7 @@ input{
 
 button{
     margin-top:20px;
-    width:220px;
+    width:280px;
     height:55px;
     border:none;
     border-radius:10px;
@@ -66,11 +66,17 @@ button{
     color:white;
     font-size:25px;
     cursor:pointer;
-    transition:0.2s;
+    transition:0.3s;
+    font-weight: 1000;
 }
 
 button:hover{
     transform:scale(1.05);
+}
+
+button:active{
+    transform: scale(0.95);
+    background-color: #09028d;
 }
 
 .info{
@@ -82,9 +88,22 @@ button:hover{
     font-weight:bold;
 }
 
+.info img{
+    width: 3vw;
+}
+
+.info p{
+    position: relative;
+    top: 10px;
+}
+
 .final{
     display:none;
     text-align:center;
+    border: 3px solid rgb(122, 6, 255);
+    background-color: #4f46ff75;
+    padding: 3rem;
+    border-radius: 1rem;
 }
 
 .final h2{
@@ -112,4 +131,10 @@ button:hover{
     background-color: #4f46ff75;
     padding: 3rem;
     border-radius: 1rem;
+}
+
+@media(max-width: 480px){
+    .info img{
+        width: 10vw;
+    }
 }
