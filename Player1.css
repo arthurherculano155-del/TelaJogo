@@ -97,3 +97,19 @@ button:hover{
     color:white;
     font-size:35px;
 }
+
+
+#win{
+    margin: auto;
+    font-size: 2rem;
+    color: white;
+    font-weight: 1000;
+    align-items: center;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    border: 3px solid rgb(122, 6, 255);
+    background-color: #4f46ff75;
+    padding: 3rem;
+    border-radius: 1rem;
+}

@@ -45,6 +45,12 @@
 
     </div>
 
+    <div class="ganhou" id="win">
+        <p>VOCÊ GANHOU!!</p>
+        <p>Pontos: 10</p>
+        <button onclick="location.reload()">Jogar Novamente</button>
+    </div>
+
 </div>
 
 <script>
@@ -88,6 +94,15 @@ function verificar(){
     }else{
 
         perderVida();
+    }
+
+     if(pontos >= 10){
+        tempo = 80000;
+
+        document.getElementById("game").style.display = "none";
+        document.getElementById("pontos").innerText = 10;
+
+        document.getElementById("win").style.display = "flex";
     }
 }
 
