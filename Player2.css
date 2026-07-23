@@ -145,5 +145,6 @@ button:active{
     #win,
     .final{
         width: 90vw;
+        text-align: center;
     }
 }
