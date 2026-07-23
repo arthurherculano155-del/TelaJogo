@@ -24,7 +24,7 @@ body{
 
 .container{
     width:500px;
-    padding:40px;
+    padding:4rem;
     background:rgba(255,255,255,0.15);
     border:3px solid #5d5dff;
     border-radius:20px;
@@ -136,5 +136,10 @@ button:active{
 @media(max-width: 480px){
     .info img{
         width: 10vw;
+    }
+
+    #win,
+    .final{
+        width: 80vw;
     }
 }
