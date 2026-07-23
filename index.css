@@ -140,6 +140,10 @@ body{
         padding: 3rem 2rem;
     }
 
+    .game img{
+        width: 110%;
+    }
+
     .game h1{
         font-size: 2.3rem;
     }
