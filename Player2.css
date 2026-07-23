@@ -138,6 +138,10 @@ button:active{
         width: 10vw;
     }
 
+    button{
+        width: 100%;
+    }
+
     #win,
     .final{
         width: 90vw;
