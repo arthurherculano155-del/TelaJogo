@@ -54,6 +54,8 @@ body{
 .game img{
     width: 80%;
     max-width: 420px;
+    position: relative;
+    left: 1.7%;
 }
 
 .game h1{
