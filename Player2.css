@@ -64,7 +64,7 @@ input{
 
 button{
     margin-top:20px;
-    width:280px;
+    width:300px;
     height:55px;
     border:none;
     border-radius:10px;
@@ -139,6 +139,16 @@ button:active{
     border-radius:1rem;
     line-height:1.8;
     text-align:center;
+}
+
+.p{
+    color: lime;
+    animation: fade .5s ease-out;
+}
+
+.hi,
+#p{
+    color: black;
 }
 
 @keyframes fade{

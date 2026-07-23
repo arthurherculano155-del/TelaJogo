@@ -31,6 +31,9 @@
 
         <div class="info">
             <span><img src="MineHeart.png" alt=""> <p id="vidas">3</p></span>
+
+            <h2 class="hi">Pergunta: <span id="p"></span></h2>
+
             <span><img src="MinecraftCLock-removebg-preview.png" alt=""><p id="tempo">5</p></span>
         </div>
 
@@ -54,8 +57,8 @@
     </div>
 
     <div class="ganhou" id="win">
-        <p>VOCÊ GANHOU!!</p>
-        <p>Pontos: 10</p>
+        <p class="p">VOCÊ GANHOU!! 🍭</p>
+        <p id="wins"></p>
         <button onclick="location.reload()">Jogar Novamente</button> <br>
 
         <a href="index.html">
@@ -70,6 +73,7 @@
 let n1;
 let n2;
 let resultado;
+let qtdPerguntas = 1;
 
 let vidas = 3;
 let pontos = 0;
@@ -77,6 +81,7 @@ let tempo = 5;
 
 const pergunta = document.getElementById("pergunta");
 const respostaInput = document.getElementById("resposta");
+
 
 function novaPergunta(){
 
@@ -91,6 +96,8 @@ function novaPergunta(){
 
     tempo = 5;
     document.getElementById("tempo").innerHTML = tempo;
+    document.getElementById("p").innerHTML = qtdPerguntas;
+    qtdPerguntas++
 }
 
 function verificar(){
@@ -112,9 +119,10 @@ function verificar(){
         tempo = 80000;
 
         document.getElementById("game").style.display = "none";
-        document.getElementById("pontos").innerText = 10;
 
         document.getElementById("win").style.display = "flex";
+
+        document.getElementById("wins").innerText = `Pontos: ${pontos}`
     }
 }
 

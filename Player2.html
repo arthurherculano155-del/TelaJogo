@@ -31,6 +31,9 @@
 
         <div class="info">
             <span><img src="HardcoreHeart-removebg-preview.png" alt=""> <p id="vidas">1</p></span>
+
+            <h2 class="hi">Pergunta: <span id="p"></span></h2>
+
             <span><img src="MinecraftCLock-removebg-preview.png" alt=""><p id="tempo">5</p></span>
         </div>
 
@@ -53,8 +56,8 @@
     </div>
 
     <div class="ganhou" id="win">
-        <p>VOCÊ GANHOU!!</p>
-        <p>Pontos: 20</p>
+        <p class="p">VOCÊ GANHOU!! 🍿</p>
+        <p id="wins"></p>
         <button onclick="location.reload()">Jogar Novamente</button> <br>
 
         <a href="index.html">
@@ -73,6 +76,7 @@ let resultado;
 let vidas = 1;
 let pontos = 0;
 let tempo = 5;
+let qtdPerguntas = 1;
 
 const pergunta = document.getElementById("pergunta");
 const respostaInput = document.getElementById("resposta");
@@ -90,6 +94,8 @@ function novaPergunta(){
 
     tempo = 5;
     document.getElementById("tempo").innerHTML = tempo;
+    document.getElementById("p").innerHTML = qtdPerguntas;
+    qtdPerguntas++;
 }
 
 function verificar(){
@@ -111,9 +117,10 @@ function verificar(){
         tempo = 80000;
 
         document.getElementById("game").style.display = "none";
-        document.getElementById("pontos").innerText = 10;
 
         document.getElementById("win").style.display = "flex";
+
+        document.getElementById("wins").innerText = `Pontos: ${pontos}`
     }
 }
 
