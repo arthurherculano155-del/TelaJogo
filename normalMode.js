@@ -6,7 +6,7 @@ let qtdPerguntas = 1;
 
 let vidas = 3;
 let pontos = 0;
-let tempo = 5;
+let tempo = 10;
 
 const pergunta = document.getElementById("pergunta");
 const respostaInput = document.getElementById("resposta");
@@ -23,7 +23,7 @@ function novaPergunta(){
 
     respostaInput.value = "";
 
-    tempo = 5;
+    tempo = 10;
     document.getElementById("tempo").innerHTML = tempo;
     document.getElementById("p").innerHTML = qtdPerguntas;
     qtdPerguntas++
