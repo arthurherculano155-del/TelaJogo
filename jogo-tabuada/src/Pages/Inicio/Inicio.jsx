@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./index.css";
+import "./Inicio.css";
 
 export default function Home() {
     return (
@@ -8,7 +8,7 @@ export default function Home() {
             <section className="game">
 
                 <img
-                    src="/tittle.png"
+                    src="../../Assets/Imgs/tittle.png"
                     alt="Desafio da Tabuada"
                     className="Start"
                 />

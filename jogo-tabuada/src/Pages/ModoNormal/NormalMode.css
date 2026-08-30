@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 .press-start-2p-regular{
     font-family:"Press Start 2P",system-ui;
     font-weight:400;
@@ -13,7 +15,7 @@
 
 body{
     overflow:hidden;
-    background-image:url("Fundo.png");
+    background-image: url("../../Fundo.png");
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
@@ -108,7 +110,7 @@ button:active{
     border:3px solid rgb(122,6,255);
     background:#4f46ff75;
     border-radius:16px;
-    padding:2rem;
+    padding: 5rem;
 }
 
 .final h2{
@@ -135,7 +137,7 @@ button:active{
     justify-content:center;
     border:3px solid rgb(122,6,255);
     background:#4f46ff75;
-    padding:3rem;
+    padding: 5rem;
     border-radius:1rem;
     line-height:1.8;
     text-align:center;

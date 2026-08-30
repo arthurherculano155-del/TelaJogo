@@ -1,34 +1,38 @@
-.press-start-2p-regular{
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.press-start-2p-regular {
     font-family: "Press Start 2P", system-ui;
     font-weight: 400;
     font-style: normal;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Press Start 2P", system-ui;
 }
 
-html{
+html {
     font-size: 10px;
 }
 
-body{
+body {
     overflow: hidden;
     font-family: "Press Start 2P", system-ui;
 }
 
-.tela{
-    background: url("Fundo.png") center/cover no-repeat;
+.tela {
+    background: url("../../Fundo.png") center / cover no-repeat;
     width: 100vw;
     height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.game{
+.game {
     width: 90%;
     max-width: 700px;
     padding: 4rem;
@@ -38,58 +42,56 @@ body{
     align-items: center;
     gap: 2rem;
 
-    background: rgba(0,0,0,.45);
+    background: rgba(0, 0, 0, .45);
     backdrop-filter: blur(8px);
 
-    border: 3px solid rgb(0,255,255);
+    border: 3px solid rgb(0, 255, 255);
     border-radius: 20px;
 
     box-shadow:
         0 0 20px cyan,
-        0 0 60px rgba(0,255,255,.35);
+        0 0 60px rgba(0, 255, 255, .35);
 
     animation: aparecer .8s ease;
 }
 
-.game img{
+.game img {
     width: 80%;
     max-width: 420px;
     position: relative;
     left: 1.7%;
 }
 
-.game h1{
+.game h1 {
     color: #8ffcff;
     font-size: 3rem;
     text-align: center;
+
     text-shadow:
         0 0 10px cyan,
         0 0 30px cyan;
 }
 
-.game p{
+.game p {
     color: white;
     font-size: 1.4rem;
     text-align: center;
     line-height: 2.4rem;
 }
 
-.botoes{
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    width: 100%;
-    align-items: center;
+.game a {
+    text-decoration: none;
 }
 
-.game button{
+.game button {
     width: 260px;
-    padding: 18px;
+    height: 55px;
 
-    background: linear-gradient(180deg,#2fdcff,#0084ff);
+    background: linear-gradient(180deg, #2fdcff, #0084ff);
     color: white;
 
-    box-shadow: 0px 8px 2px #016bce;
+    box-shadow: 0 8px 2px #016bce;
+
     border: none;
     border-radius: 10px;
 
@@ -97,60 +99,59 @@ body{
     font-size: 1.5rem;
 
     cursor: pointer;
+
     transition: .25s;
 }
 
-.game button:hover{
+.game button:hover {
     transform: translateY(-5px) scale(1.05);
 
     box-shadow:
         0 0 20px rgb(255, 136, 0),
         0 0 50px rgb(255, 153, 0);
 
-    background: linear-gradient(180deg,#ffb759,#ffa600);
+    background: linear-gradient(180deg, #ffb759, #ffa600);
 }
 
-.game button:active{
+.game button:active {
     transform: scale(.90);
-    background: linear-gradient(180deg,#d47800,#9c6601);
+
+    background: linear-gradient(180deg, #d47800, #9c6601);
 }
 
-@keyframes aparecer{
-
-    from{
+@keyframes aparecer {
+    from {
         opacity: 0;
         transform: translateY(40px);
     }
 
-    to{
+    to {
         opacity: 1;
         transform: translateY(0);
     }
-
 }
 
-@media (max-width:768px){
+@media (max-width: 768px) {
 
-    html{
+    html {
         font-size: 8px;
     }
 
-    .game{
+    .game {
         width: 95%;
         padding: 3rem 2rem;
     }
 
-    .game img{
+    .game img {
         width: 110%;
     }
 
-    .game h1{
+    .game h1 {
         font-size: 2.3rem;
     }
 
-    .game button{
+    .game button {
         width: 200px;
         max-width: 300px;
     }
-
 }

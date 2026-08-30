@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./ModoNormal.css";
+import "./NormalMode.css";
 
 export default function NormalMode() {
 
@@ -324,7 +324,7 @@ export default function NormalMode() {
                     <span>
 
                         <img
-                            src="/MineHeart.png"
+                            src="./Assets/Imgs/MineHeart.png"
                             alt="Vidas"
                         />
 
@@ -353,7 +353,7 @@ export default function NormalMode() {
                     <span>
 
                         <img
-                            src="/MinecraftCLock-removebg-preview.png"
+                            src="./Assets/Imgs/MinecraftCLock-removebg-preview.png"
                             alt="Tempo"
                         />
 

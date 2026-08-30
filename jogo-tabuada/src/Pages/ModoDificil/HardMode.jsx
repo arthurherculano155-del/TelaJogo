@@ -92,6 +92,7 @@ export default function HardMode() {
                 }
 
                 return tempoAtual - 1;
+
             });
 
         }, 1000);
@@ -252,7 +253,7 @@ export default function HardMode() {
                     <span>
 
                         <img
-                            src="/HardcoreHeart-removebg-preview.png"
+                            src="/Assets/Imgs/HardcoreHeart-removebg-preview.png"
                             alt="Vida"
                         />
 
@@ -271,7 +272,7 @@ export default function HardMode() {
                     <span>
 
                         <img
-                            src="/MinecraftCLock-removebg-preview.png"
+                            src="/Assets/Imgs/MinecraftCLock-removebg-preview.png"
                             alt="Tempo"
                         />
 
