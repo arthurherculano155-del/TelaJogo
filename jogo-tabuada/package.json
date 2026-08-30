@@ -2,7 +2,7 @@
   "name": "jogo-tabuada",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://arthurherculano155-del.github.io/jogo-tabuada",
+  "homepage": "https://arthurherculano155-del.github.io/TelaJogo",
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",

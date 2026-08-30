@@ -36,22 +36,12 @@ export default function NormalMode() {
         setTempo(10);
     }
 
-
-    // =========================
-    // NOVA PERGUNTA
-    // =========================
-
     function novaPergunta() {
 
         gerarPergunta();
 
         setQtdPerguntas((valor) => valor + 1);
     }
-
-
-    // =========================
-    // PERDER VIDA
-    // =========================
 
     function perderVida() {
 
@@ -67,11 +57,6 @@ export default function NormalMode() {
 
         novaPergunta();
     }
-
-
-    // =========================
-    // VERIFICAR RESPOSTA
-    // =========================
 
     function verificar() {
 
@@ -104,11 +89,6 @@ export default function NormalMode() {
         }
     }
 
-
-    // =========================
-    // CRONÔMETRO
-    // =========================
-
     useEffect(() => {
 
         if (gameOver || venceu) {
@@ -126,11 +106,6 @@ export default function NormalMode() {
         };
 
     }, [gameOver, venceu]);
-
-
-    // =========================
-    // TEMPO ESGOTADO
-    // =========================
 
     useEffect(() => {
 
@@ -156,11 +131,6 @@ export default function NormalMode() {
 
     }, [tempo, vidas, gameOver, venceu]);
 
-
-    // =========================
-    // ENTER
-    // =========================
-
     useEffect(() => {
 
         function pressionouEnter(e) {
@@ -179,21 +149,11 @@ export default function NormalMode() {
 
     }, [resposta, n1, n2, gameOver, venceu]);
 
-
-    // =========================
-    // PRIMEIRA PERGUNTA
-    // =========================
-
     useEffect(() => {
 
         gerarPergunta();
 
     }, []);
-
-
-    // =========================
-    // JOGAR NOVAMENTE
-    // =========================
 
     function jogarNovamente() {
 
@@ -213,11 +173,6 @@ export default function NormalMode() {
         setGameOver(false);
         setVenceu(false);
     }
-
-
-    // =========================
-    // GAME OVER
-    // =========================
 
     if (gameOver) {
 
@@ -255,11 +210,6 @@ export default function NormalMode() {
         );
     }
 
-
-    // =========================
-    // VITÓRIA
-    // =========================
-
     if (venceu) {
 
         return (
@@ -295,11 +245,6 @@ export default function NormalMode() {
 
         );
     }
-
-
-    // =========================
-    // JOGO
-    // =========================
 
     return (
 

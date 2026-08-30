@@ -17,11 +17,6 @@ export default function HardMode() {
     const [gameOver, setGameOver] = useState(false);
     const [venceu, setVenceu] = useState(false);
 
-
-    // =========================
-    // GERAR PERGUNTA
-    // =========================
-
     function gerarPergunta() {
 
         const novoN1 = Math.floor(Math.random() * 10) + 1;
@@ -34,11 +29,6 @@ export default function HardMode() {
         setTempo(5);
     }
 
-
-    // =========================
-    // NOVA PERGUNTA
-    // =========================
-
     function novaPergunta() {
 
         gerarPergunta();
@@ -46,21 +36,11 @@ export default function HardMode() {
         setQtdPerguntas((valor) => valor + 1);
     }
 
-
-    // =========================
-    // PERDER VIDA
-    // =========================
-
     function perderVida() {
 
         setVidas(0);
         setGameOver(true);
     }
-
-
-    // =========================
-    // VERIFICAR RESPOSTA
-    // =========================
 
     function verificar() {
 
@@ -93,11 +73,6 @@ export default function HardMode() {
         }
     }
 
-
-    // =========================
-    // CRONÔMETRO
-    // =========================
-
     useEffect(() => {
 
         if (gameOver || venceu) {
@@ -116,11 +91,6 @@ export default function HardMode() {
 
     }, [gameOver, venceu]);
 
-
-    // =========================
-    // TEMPO ESGOTADO
-    // =========================
-
     useEffect(() => {
 
         if (tempo <= 0 && !gameOver && !venceu) {
@@ -130,11 +100,6 @@ export default function HardMode() {
         }
 
     }, [tempo, gameOver, venceu]);
-
-
-    // =========================
-    // ENTER
-    // =========================
 
     useEffect(() => {
 
@@ -154,21 +119,11 @@ export default function HardMode() {
 
     }, [resposta, n1, n2, pontos, gameOver, venceu]);
 
-
-    // =========================
-    // PRIMEIRA PERGUNTA
-    // =========================
-
     useEffect(() => {
 
         gerarPergunta();
 
     }, []);
-
-
-    // =========================
-    // JOGAR NOVAMENTE
-    // =========================
 
     function jogarNovamente() {
 
@@ -188,11 +143,6 @@ export default function HardMode() {
         setGameOver(false);
         setVenceu(false);
     }
-
-
-    // =========================
-    // GAME OVER
-    // =========================
 
     if (gameOver) {
 
@@ -232,11 +182,6 @@ export default function HardMode() {
         );
     }
 
-
-    // =========================
-    // VITÓRIA
-    // =========================
-
     if (venceu) {
 
         return (
@@ -274,11 +219,6 @@ export default function HardMode() {
 
         );
     }
-
-
-    // =========================
-    // JOGO
-    // =========================
 
     return (
 
