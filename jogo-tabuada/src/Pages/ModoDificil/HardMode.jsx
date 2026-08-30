@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./HardMode.css";
 
 export default function HardMode() {
@@ -16,7 +17,12 @@ export default function HardMode() {
     const [gameOver, setGameOver] = useState(false);
     const [venceu, setVenceu] = useState(false);
 
-    function novaPergunta() {
+
+    // =========================
+    // GERAR PERGUNTA
+    // =========================
+
+    function gerarPergunta() {
 
         const novoN1 = Math.floor(Math.random() * 10) + 1;
         const novoN2 = Math.floor(Math.random() * 10) + 1;
@@ -25,32 +31,44 @@ export default function HardMode() {
         setN2(novoN2);
 
         setResposta("");
-
         setTempo(5);
+    }
+
+
+    // =========================
+    // NOVA PERGUNTA
+    // =========================
+
+    function novaPergunta() {
+
+        gerarPergunta();
 
         setQtdPerguntas((valor) => valor + 1);
     }
 
+
+    // =========================
+    // PERDER VIDA
+    // =========================
+
     function perderVida() {
 
-        setVidas((vidasAtuais) => {
-
-            const novasVidas = vidasAtuais - 1;
-
-            if (novasVidas <= 0) {
-                setGameOver(true);
-            } else {
-                novaPergunta();
-            }
-
-            return novasVidas;
-        });
+        setVidas(0);
+        setGameOver(true);
     }
+
+
+    // =========================
+    // VERIFICAR RESPOSTA
+    // =========================
 
     function verificar() {
 
-        const valor = Number(resposta);
+        if (gameOver || venceu) {
+            return;
+        }
 
+        const valor = Number(resposta);
         const resultado = n1 * n2;
 
         if (valor === resultado) {
@@ -59,9 +77,10 @@ export default function HardMode() {
 
             setPontos(novosPontos);
 
-            // Vitória com 20 pontos
             if (novosPontos >= 20) {
+
                 setVenceu(true);
+
                 return;
             }
 
@@ -74,6 +93,11 @@ export default function HardMode() {
         }
     }
 
+
+    // =========================
+    // CRONÔMETRO
+    // =========================
+
     useEffect(() => {
 
         if (gameOver || venceu) {
@@ -82,27 +106,35 @@ export default function HardMode() {
 
         const intervalo = setInterval(() => {
 
-            setTempo((tempoAtual) => {
-
-                if (tempoAtual <= 1) {
-
-                    perderVida();
-
-                    return 5;
-                }
-
-                return tempoAtual - 1;
-
-            });
+            setTempo((valor) => valor - 1);
 
         }, 1000);
-
 
         return () => {
             clearInterval(intervalo);
         };
 
     }, [gameOver, venceu]);
+
+
+    // =========================
+    // TEMPO ESGOTADO
+    // =========================
+
+    useEffect(() => {
+
+        if (tempo <= 0 && !gameOver && !venceu) {
+
+            perderVida();
+
+        }
+
+    }, [tempo, gameOver, venceu]);
+
+
+    // =========================
+    // ENTER
+    // =========================
 
     useEffect(() => {
 
@@ -120,22 +152,31 @@ export default function HardMode() {
             window.removeEventListener("keydown", pressionouTecla);
         };
 
-    });
+    }, [resposta, n1, n2, pontos, gameOver, venceu]);
+
+
+    // =========================
+    // PRIMEIRA PERGUNTA
+    // =========================
 
     useEffect(() => {
+
+        gerarPergunta();
+
+    }, []);
+
+
+    // =========================
+    // JOGAR NOVAMENTE
+    // =========================
+
+    function jogarNovamente() {
 
         const novoN1 = Math.floor(Math.random() * 10) + 1;
         const novoN2 = Math.floor(Math.random() * 10) + 1;
 
         setN1(novoN1);
         setN2(novoN2);
-
-    }, []);
-
-    function jogarNovamente() {
-
-        setN1(1);
-        setN2(1);
 
         setResposta("");
 
@@ -146,15 +187,23 @@ export default function HardMode() {
 
         setGameOver(false);
         setVenceu(false);
-
-        novaPergunta();
     }
+
+
+    // =========================
+    // GAME OVER
+    // =========================
 
     if (gameOver) {
 
         return (
 
-            <div className="tela">
+            <div
+                className="tela"
+                style={{
+                    backgroundImage: `url(${process.env.PUBLIC_URL}/Fundo.png)`
+                }}
+            >
 
                 <div className="final">
 
@@ -170,11 +219,11 @@ export default function HardMode() {
                         Jogar Novamente
                     </button>
 
-                    <br />
-
-                    <button onClick={() => window.location.href = "/"}>
-                        Voltar ao Lobby
-                    </button>
+                    <Link to="/">
+                        <button>
+                            Voltar ao Lobby
+                        </button>
+                    </Link>
 
                 </div>
 
@@ -183,11 +232,21 @@ export default function HardMode() {
         );
     }
 
+
+    // =========================
+    // VITÓRIA
+    // =========================
+
     if (venceu) {
 
         return (
 
-            <div className="tela">
+            <div
+                className="tela"
+                style={{
+                    backgroundImage: `url(${process.env.PUBLIC_URL}/Fundo.png)`
+                }}
+            >
 
                 <div className="ganhou">
 
@@ -203,11 +262,11 @@ export default function HardMode() {
                         Jogar Novamente
                     </button>
 
-                    <br />
-
-                    <button onClick={() => window.location.href = "/"}>
-                        Voltar ao Lobby
-                    </button>
+                    <Link to="/">
+                        <button>
+                            Voltar ao Lobby
+                        </button>
+                    </Link>
 
                 </div>
 
@@ -216,9 +275,19 @@ export default function HardMode() {
         );
     }
 
+
+    // =========================
+    // JOGO
+    // =========================
+
     return (
 
-        <div className="tela">
+        <div
+            className="tela"
+            style={{
+                backgroundImage: `url(${process.env.PUBLIC_URL}/Fundo.png)`
+            }}
+        >
 
             <div className="container" id="game">
 
@@ -253,7 +322,7 @@ export default function HardMode() {
                     <span>
 
                         <img
-                            src="/Assets/Imgs/HardcoreHeart-removebg-preview.png"
+                            src={`${process.env.PUBLIC_URL}/Assets/Imgs/HardcoreHeart-removebg-preview.png`}
                             alt="Vida"
                         />
 
@@ -265,14 +334,20 @@ export default function HardMode() {
 
 
                     <h2 className="hi">
-                        Pergunta: <span>{qtdPerguntas}</span>
+
+                        Pergunta:{" "}
+
+                        <span>
+                            {qtdPerguntas}
+                        </span>
+
                     </h2>
 
 
                     <span>
 
                         <img
-                            src="/Assets/Imgs/MinecraftCLock-removebg-preview.png"
+                            src={`${process.env.PUBLIC_URL}/Assets/Imgs/MinecraftCLock-removebg-preview.png`}
                             alt="Tempo"
                         />
 

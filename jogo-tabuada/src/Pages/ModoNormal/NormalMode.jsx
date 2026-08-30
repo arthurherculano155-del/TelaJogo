@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./NormalMode.css";
 
 export default function NormalMode() {
 
-    // =========================
-    // ESTADOS
-    // =========================
+    const navigate = useNavigate();
 
     const [n1, setN1] = useState(1);
     const [n2, setN2] = useState(1);
@@ -22,10 +21,10 @@ export default function NormalMode() {
 
 
     // =========================
-    // NOVA PERGUNTA
+    // GERAR PERGUNTA
     // =========================
 
-    function novaPergunta() {
+    function gerarPergunta() {
 
         const novoN1 = Math.floor(Math.random() * 10) + 1;
         const novoN2 = Math.floor(Math.random() * 10) + 1;
@@ -35,6 +34,16 @@ export default function NormalMode() {
 
         setResposta("");
         setTempo(10);
+    }
+
+
+    // =========================
+    // NOVA PERGUNTA
+    // =========================
+
+    function novaPergunta() {
+
+        gerarPergunta();
 
         setQtdPerguntas((valor) => valor + 1);
     }
@@ -46,22 +55,17 @@ export default function NormalMode() {
 
     function perderVida() {
 
-        setVidas((vidasAtuais) => {
+        if (vidas === 1) {
 
-            const novasVidas = vidasAtuais - 1;
+            setVidas(0);
+            setGameOver(true);
 
-            if (novasVidas <= 0) {
+            return;
+        }
 
-                setGameOver(true);
+        setVidas((valor) => valor - 1);
 
-            } else {
-
-                novaPergunta();
-
-            }
-
-            return novasVidas;
-        });
+        novaPergunta();
     }
 
 
@@ -76,17 +80,14 @@ export default function NormalMode() {
         }
 
         const valor = Number(resposta);
-
         const resultado = n1 * n2;
 
-        // ACERTOU
         if (valor === resultado) {
 
             const novosPontos = pontos + 1;
 
             setPontos(novosPontos);
 
-            // Ganhou com 10 pontos
             if (novosPontos >= 10) {
 
                 setVenceu(true);
@@ -96,10 +97,7 @@ export default function NormalMode() {
 
             novaPergunta();
 
-        }
-
-        // ERROU
-        else {
+        } else {
 
             perderVida();
 
@@ -119,20 +117,9 @@ export default function NormalMode() {
 
         const intervalo = setInterval(() => {
 
-            setTempo((tempoAtual) => {
-
-                if (tempoAtual <= 1) {
-
-                    perderVida();
-
-                    return 10;
-                }
-
-                return tempoAtual - 1;
-            });
+            setTempo((valor) => valor - 1);
 
         }, 1000);
-
 
         return () => {
             clearInterval(intervalo);
@@ -142,7 +129,36 @@ export default function NormalMode() {
 
 
     // =========================
-    // TECLA ENTER
+    // TEMPO ESGOTADO
+    // =========================
+
+    useEffect(() => {
+
+        if (tempo !== 0) {
+            return;
+        }
+
+        if (gameOver || venceu) {
+            return;
+        }
+
+        if (vidas === 1) {
+
+            setVidas(0);
+            setGameOver(true);
+
+            return;
+        }
+
+        setVidas((valor) => valor - 1);
+
+        novaPergunta();
+
+    }, [tempo, vidas, gameOver, venceu]);
+
+
+    // =========================
+    // ENTER
     // =========================
 
     useEffect(() => {
@@ -161,7 +177,7 @@ export default function NormalMode() {
             window.removeEventListener("keydown", pressionouEnter);
         };
 
-    });
+    }, [resposta, n1, n2, gameOver, venceu]);
 
 
     // =========================
@@ -170,11 +186,7 @@ export default function NormalMode() {
 
     useEffect(() => {
 
-        const novoN1 = Math.floor(Math.random() * 10) + 1;
-        const novoN2 = Math.floor(Math.random() * 10) + 1;
-
-        setN1(novoN1);
-        setN2(novoN2);
+        gerarPergunta();
 
     }, []);
 
@@ -185,8 +197,11 @@ export default function NormalMode() {
 
     function jogarNovamente() {
 
-        setN1(1);
-        setN2(1);
+        const novoN1 = Math.floor(Math.random() * 10) + 1;
+        const novoN2 = Math.floor(Math.random() * 10) + 1;
+
+        setN1(novoN1);
+        setN2(novoN2);
 
         setResposta("");
 
@@ -197,8 +212,6 @@ export default function NormalMode() {
 
         setGameOver(false);
         setVenceu(false);
-
-        novaPergunta();
     }
 
 
@@ -210,7 +223,12 @@ export default function NormalMode() {
 
         return (
 
-            <div className="tela">
+            <div
+                className="tela"
+                style={{
+                    backgroundImage: `url(${process.env.PUBLIC_URL}/Fundo.png)`
+                }}
+            >
 
                 <div className="final">
 
@@ -226,9 +244,7 @@ export default function NormalMode() {
                         Jogar Novamente
                     </button>
 
-                    <br />
-
-                    <button onClick={() => window.location.href = "/"}>
+                    <button onClick={() => navigate("/")}>
                         Voltar ao Lobby
                     </button>
 
@@ -248,7 +264,12 @@ export default function NormalMode() {
 
         return (
 
-            <div className="tela">
+            <div
+                className="tela"
+                style={{
+                    backgroundImage: `url(${process.env.PUBLIC_URL}/Fundo.png)`
+                }}
+            >
 
                 <div className="ganhou">
 
@@ -264,9 +285,7 @@ export default function NormalMode() {
                         Jogar Novamente
                     </button>
 
-                    <br />
-
-                    <button onClick={() => window.location.href = "/"}>
+                    <button onClick={() => navigate("/")}>
                         Voltar ao Lobby
                     </button>
 
@@ -284,7 +303,12 @@ export default function NormalMode() {
 
     return (
 
-        <div className="tela">
+        <div
+            className="tela"
+            style={{
+                backgroundImage: `url(${process.env.PUBLIC_URL}/Fundo.png)`
+            }}
+        >
 
             <div className="container" id="game">
 
@@ -294,9 +318,7 @@ export default function NormalMode() {
 
 
                 <div className="pergunta" id="pergunta">
-
                     {n1} × {n2}
-
                 </div>
 
 
@@ -319,12 +341,10 @@ export default function NormalMode() {
 
                 <div className="info">
 
-                    {/* VIDAS */}
-
                     <span>
 
                         <img
-                            src="./Assets/Imgs/MineHeart.png"
+                            src={`${process.env.PUBLIC_URL}/Assets/Imgs/MineHeart.png`}
                             alt="Vidas"
                         />
 
@@ -334,8 +354,6 @@ export default function NormalMode() {
 
                     </span>
 
-
-                    {/* PERGUNTAS */}
 
                     <h2 className="hi">
 
@@ -348,12 +366,10 @@ export default function NormalMode() {
                     </h2>
 
 
-                    {/* TEMPO */}
-
                     <span>
 
                         <img
-                            src="./Assets/Imgs/MinecraftCLock-removebg-preview.png"
+                            src={`${process.env.PUBLIC_URL}/Assets/Imgs/MinecraftCLock-removebg-preview.png`}
                             alt="Tempo"
                         />
 

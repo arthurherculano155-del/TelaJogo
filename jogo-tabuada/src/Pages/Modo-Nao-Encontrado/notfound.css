@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Press Start 2P", system-ui;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    overflow: hidden;
+}
+
+.not-found {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 2rem;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.65)
+        ),
+        url("../../Fundo.png") center / cover no-repeat;
+
+    animation: aparecer 0.8s ease;
+}
+
+.not-found::before {
+    content: "404";
+
+    position: absolute;
+
+    font-size: 18rem;
+
+    color: rgba(0, 255, 255, 0.08);
+
+    pointer-events: none;
+}
+
+.not-found h1 {
+    position: relative;
+    z-index: 1;
+
+    max-width: 800px;
+
+    color: #8ffcff;
+
+    font-size: 3rem;
+
+    line-height: 1.7;
+
+    margin-bottom: 4rem;
+
+    text-shadow:
+        0 0 10px cyan,
+        0 0 30px cyan;
+
+    animation: flutuar 2s ease-in-out infinite;
+}
+
+.not-found a {
+    position: relative;
+    z-index: 1;
+
+    width: 260px;
+    height: 55px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        180deg,
+        #2fdcff,
+        #0084ff
+    );
+
+    color: white;
+
+    box-shadow:
+        0 8px 2px #016bce;
+
+    border: none;
+    border-radius: 10px;
+
+    font-family: inherit;
+    font-size: 1.5rem;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.not-found a p {
+    color: white;
+
+    font-size: 1.4rem;
+
+    line-height: 1.5;
+}
+
+.not-found a:hover {
+    transform: translateY(-5px) scale(1.05);
+
+    box-shadow:
+        0 0 20px rgb(255, 136, 0),
+        0 0 50px rgb(255, 153, 0);
+
+    background: linear-gradient(
+        180deg,
+        #ffb759,
+        #ffa600
+    );
+}
+
+.not-found a:active {
+    transform: scale(0.90);
+
+    background: linear-gradient(
+        180deg,
+        #d47800,
+        #9c6601
+    );
+}
+
+@keyframes flutuar {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    html {
+        font-size: 8px;
+    }
+
+    .not-found {
+        padding: 2rem;
+    }
+
+    .not-found::before {
+        font-size: 10rem;
+    }
+
+    .not-found h1 {
+        font-size: 2.3rem;
+
+        line-height: 1.8;
+
+        margin-bottom: 3rem;
+    }
+
+    .not-found a {
+        width: 200px;
+        max-width: 300px;
+    }
+
+    .not-found a p {
+        font-size: 1.1rem;
+    }
+
+}

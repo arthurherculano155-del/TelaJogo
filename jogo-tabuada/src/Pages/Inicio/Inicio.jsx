@@ -4,41 +4,30 @@ import "./Inicio.css";
 export default function Home() {
     return (
         <div className="tela">
-
             <section className="game">
 
                 <img
-                    src="../../Assets/Imgs/tittle.png"
+                    src={`${process.env.PUBLIC_URL}/Assets/Imgs/tittle.png`}
                     alt="Desafio da Tabuada"
                     className="Start"
                 />
 
-                <Link to="/normal">
-                    <button>
-                        <strong>
-                            <p>NORMAL MODE</p>
-                        </strong>
-                    </button>
+                <Link to="/normal" className="botao">
+                    NORMAL MODE
                 </Link>
 
-                <Link to="/hard">
-                    <button>
-                        <strong>
-                            <p>HARD MODE</p>
-                        </strong>
-                    </button>
+                <Link to="/hard" className="botao">
+                    HARD MODE
                 </Link>
 
-                <a href="https://www.google.com/">
-                    <button>
-                        <strong>
-                            <p>EXIT</p>
-                        </strong>
-                    </button>
+                <a
+                    href="https://www.google.com/"
+                    className="botao"
+                >
+                    EXIT
                 </a>
 
             </section>
-
         </div>
     );
 }

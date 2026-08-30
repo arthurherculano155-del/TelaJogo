@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-.press-start-2p-regular {
-    font-family: "Press Start 2P", system-ui;
-    font-weight: 400;
-    font-style: normal;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -15,74 +9,107 @@
 
 body {
     overflow: hidden;
-    background-image: url("../../Fundo.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 }
 
 .tela {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    padding: 2rem;
 }
 
 .container {
     width: 500px;
+    max-width: 100%;
+
     padding: 3rem;
-    background: rgba(255, 255, 255, .15);
+
+    background: rgba(255, 255, 255, 0.15);
+
     border: 3px solid #5d5dff;
     border-radius: 20px;
+
     text-align: center;
+
     backdrop-filter: blur(5px);
 }
 
-h1 {
+.container h1 {
     font-size: 28px;
     color: #0c4c5c;
+
     margin-bottom: 25px;
+
     text-shadow: 2px 2px white;
+
     line-height: 1.5;
 }
 
 .pergunta {
     font-size: 22px;
     color: black;
+
     margin: 30px 0;
+
     line-height: 1.6;
 }
 
-input {
+.container input {
     width: 80%;
     height: 55px;
+
     border: none;
     border-radius: 10px;
+
     text-align: center;
+
     font-size: 16px;
+
     outline: none;
 }
 
-button {
+.container button,
+.final button,
+.ganhou button {
     margin-top: 20px;
+
     width: 300px;
+    max-width: 100%;
     height: 55px;
+
     border: none;
     border-radius: 10px;
+
     background: #4f46ff;
+
     color: white;
+
     font-size: 14px;
+
     cursor: pointer;
-    transition: .3s;
+
+    transition: 0.3s;
 }
 
-button:hover {
+.container button:hover,
+.final button:hover,
+.ganhou button:hover {
     transform: scale(1.05);
 }
 
-button:active {
-    transform: scale(.95);
+.container button:active,
+.final button:active,
+.ganhou button:active {
+    transform: scale(0.95);
+
     background: #09028d;
 }
 
@@ -90,18 +117,33 @@ button:active {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     margin-top: 30px;
+
     color: white;
     font-size: 12px;
 }
 
+.info span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .info img {
     width: 40px;
+    height: 40px;
+
+    object-fit: contain;
 }
 
 .info p {
-    position: relative;
-    top: 10px;
+    margin-top: 10px;
+}
+
+.hi {
+    color: black;
+    font-size: 12px;
 }
 
 .final {
@@ -109,24 +151,38 @@ button:active {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    border: 3px solid rgb(122, 6, 255);
-    background: #4f46ff75;
-    border-radius: 16px;
+
+    width: 500px;
+    max-width: 100%;
+
     padding: 5rem;
+
+    border: 3px solid rgb(122, 6, 255);
+
+    background: #4f46ff75;
+
+    border-radius: 16px;
+
+    text-align: center;
 }
 
 .final h2 {
     font-size: 28px;
+
     color: red;
+
     margin-bottom: 20px;
-    animation: fade .5s ease-out;
+
+    animation: fade 0.5s ease-out;
+
     line-height: 1.5;
 }
 
 .final p {
     color: white;
+
     font-size: 16px;
+
     line-height: 1.8;
 }
 
@@ -135,47 +191,59 @@ button:active {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: auto;
+
+    width: 500px;
+    max-width: 100%;
+
     padding: 5rem;
+
     border: 3px solid rgb(122, 6, 255);
+
     background: #4f46ff75;
+
     border-radius: 1rem;
+
     color: white;
+
     font-size: 18px;
+
     line-height: 1.8;
+
     text-align: center;
 }
 
-.p {
+.ganhou .p {
     color: lime;
-    animation: fade .5s ease-out;
-}
 
-.hi,
-#p {
-    color: black;
+    animation: fade 0.5s ease-out;
 }
 
 @keyframes fade {
+
     from {
         opacity: 0;
-        transform: scale(.1) translateY(-45px);
+        transform: scale(0.1) translateY(-45px);
     }
 
     to {
         opacity: 1;
         transform: scale(1) translateY(0);
     }
+
 }
 
 @media (max-width: 480px) {
 
-    .container {
-        width: 95%;
-        padding: 2rem;
+    .tela {
+        padding: 1rem;
     }
 
-    h1 {
+    .container {
+        width: 95%;
+        padding: 2rem 1.5rem;
+    }
+
+    .container h1 {
         font-size: 20px;
     }
 
@@ -183,11 +251,14 @@ button:active {
         font-size: 16px;
     }
 
-    input {
+    .container input {
+        width: 90%;
         font-size: 14px;
     }
 
-    button {
+    .container button,
+    .final button,
+    .ganhou button {
         width: 100%;
         font-size: 12px;
     }
@@ -198,6 +269,17 @@ button:active {
 
     .info img {
         width: 32px;
+        height: 32px;
+    }
+
+    .hi {
+        font-size: 10px;
+    }
+
+    .final,
+    .ganhou {
+        width: 90vw;
+        padding: 3rem 2rem;
     }
 
     .final h2 {
@@ -207,10 +289,5 @@ button:active {
     .final p,
     .ganhou {
         font-size: 12px;
-    }
-
-    .ganhou,
-    .final {
-        width: 90vw;
     }
 }
