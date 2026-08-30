@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/jogo-tabuada/static/css/main.a490b2a0.css",
-    "main.js": "/jogo-tabuada/static/js/main.1b39fdce.js",
-    "static/media/Fundo.png": "/jogo-tabuada/static/media/Fundo.f48d127d4a01aada362e.png",
-    "index.html": "/jogo-tabuada/index.html",
-    "main.a490b2a0.css.map": "/jogo-tabuada/static/css/main.a490b2a0.css.map",
-    "main.1b39fdce.js.map": "/jogo-tabuada/static/js/main.1b39fdce.js.map"
+    "main.css": "/TelaJogo/static/css/main.c6149cb7.css",
+    "main.js": "/TelaJogo/static/js/main.0c74bf70.js",
+    "static/media/Fundo.png": "/TelaJogo/static/media/Fundo.f48d127d4a01aada362e.png",
+    "index.html": "/TelaJogo/index.html",
+    "main.c6149cb7.css.map": "/TelaJogo/static/css/main.c6149cb7.css.map",
+    "main.0c74bf70.js.map": "/TelaJogo/static/js/main.0c74bf70.js.map"
   },
   "entrypoints": [
-    "static/css/main.a490b2a0.css",
-    "static/js/main.1b39fdce.js"
+    "static/css/main.c6149cb7.css",
+    "static/js/main.0c74bf70.js"
   ]
 }
