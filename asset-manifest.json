@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/jogo-tabuada/static/css/main.2a32b26f.css",
-    "main.js": "/jogo-tabuada/static/js/main.94e4ca8a.js",
+    "main.js": "/jogo-tabuada/static/js/main.1e927991.js",
     "static/media/Fundo.png": "/jogo-tabuada/static/media/Fundo.f48d127d4a01aada362e.png",
     "index.html": "/jogo-tabuada/index.html",
     "main.2a32b26f.css.map": "/jogo-tabuada/static/css/main.2a32b26f.css.map",
-    "main.94e4ca8a.js.map": "/jogo-tabuada/static/js/main.94e4ca8a.js.map"
+    "main.1e927991.js.map": "/jogo-tabuada/static/js/main.1e927991.js.map"
   },
   "entrypoints": [
     "static/css/main.2a32b26f.css",
-    "static/js/main.94e4ca8a.js"
+    "static/js/main.1e927991.js"
   ]
 }
