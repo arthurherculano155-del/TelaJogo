@@ -34,8 +34,6 @@ body {
             rgba(0, 0, 0, 0.65)
         ),
         url("../../Fundo.png") center / cover no-repeat;
-
-    animation: aparecer 0.8s ease;
 }
 
 .not-found::before {
@@ -149,20 +147,6 @@ body {
     }
 
     100% {
-        transform: translateY(0);
-    }
-
-}
-
-@keyframes aparecer {
-
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-
-    to {
-        opacity: 1;
         transform: translateY(0);
     }
 
