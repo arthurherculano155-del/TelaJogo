@@ -10,7 +10,7 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <HashRouter>
+    <HashRouter basename='/jogo-tabuada'>
         <Routes>
             <Route path='/' element={<Home />}/>
             <Route path='/normal' element={<NormalMode />}/>
