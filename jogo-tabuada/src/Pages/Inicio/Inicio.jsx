@@ -28,6 +28,10 @@ export default function Home() {
                 </a>
 
             </section>
+
+            <nav className="config">
+                <img src={`${process.env.PUBLIC_URL}/Assets/Imgs/Configurações.png`} alt="Configurações" />
+            </nav>
         </div>
     );
 }

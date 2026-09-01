@@ -113,6 +113,27 @@ body {
     background: linear-gradient(180deg, #d47800, #9c6601);
 }
 
+.config {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.config img {
+    width: 75px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.config img:hover {
+    transform: rotate(45deg) scale(1.1);
+}
+
+.config:active{
+    transform: scale(.90);
+}
+
 @keyframes aparecer {
     from {
         opacity: 0;

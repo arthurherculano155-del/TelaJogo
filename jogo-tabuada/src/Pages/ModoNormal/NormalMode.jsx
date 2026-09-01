@@ -19,11 +19,6 @@ export default function NormalMode() {
     const [gameOver, setGameOver] = useState(false);
     const [venceu, setVenceu] = useState(false);
 
-
-    // =========================
-    // GERAR PERGUNTA
-    // =========================
-
     function gerarPergunta() {
 
         const novoN1 = Math.floor(Math.random() * 10) + 1;
